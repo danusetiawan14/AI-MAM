@@ -18,39 +18,29 @@ Product: AI Media Asset Manager (AI-MAM)
 
 
 
-\# 1. Design Principles
+\# 1. UI/UX Vision
 
 
 
-\## AI First
+AI-MAM dirancang sebagai AI-Powered Content Intelligence Platform yang memungkinkan pengguna menemukan, memahami, dan memanfaatkan kembali aset media secara cepat melalui Artificial Intelligence.
 
 
 
-AI insights harus selalu terlihat.
+Prinsip utama:
 
 
 
-\## Search First
+\- Search First
 
+\- AI First
 
+\- Media First
 
-Search menjadi fitur utama.
+\- Enterprise Ready
 
+\- Cloud Native
 
-
-\## Media First
-
-
-
-Video preview selalu menjadi fokus utama.
-
-
-
-\## Enterprise Ready
-
-
-
-Mendukung ribuan hingga jutaan asset.
+\- User Friendly
 
 
 
@@ -58,11 +48,125 @@ Mendukung ribuan hingga jutaan asset.
 
 
 
-\# 2. Navigation Structure
+\# 2. Design Principles
 
 
 
-Sidebar Navigation
+\## Search First
+
+
+
+Search adalah fitur utama platform.
+
+
+
+User harus dapat menemukan aset hanya dengan mengetik apa yang mereka ingat.
+
+
+
+Contoh:
+
+
+
+"Presiden bicara ekonomi"
+
+
+
+"Banjir Jakarta ada helikopter"
+
+
+
+"Interview Menteri Keuangan"
+
+
+
+\---
+
+
+
+\## AI First
+
+
+
+AI Insight harus tersedia di setiap asset.
+
+
+
+User tidak perlu membuka tool tambahan untuk melihat hasil AI.
+
+
+
+\---
+
+
+
+\## Media First
+
+
+
+Video Preview selalu menjadi fokus utama.
+
+
+
+\---
+
+
+
+\## Enterprise Ready
+
+
+
+Mendukung:
+
+
+
+\- Ribuan User
+
+\- Jutaan Asset
+
+\- Multi Department
+
+\- Multi Site
+
+
+
+\---
+
+
+
+\# 3. Application Layout
+
+
+
++---------------------------------------------------------+
+
+| Header                                                  |
+
++---------------------------------------------------------+
+
+
+
++------------+--------------------------------------------+
+
+| Sidebar    | Main Content                              |
+
+|            |                                            |
+
+|            |                                            |
+
++------------+--------------------------------------------+
+
+
+
+\---
+
+
+
+\# 4. Global Navigation
+
+
+
+Sidebar Menu
 
 
 
@@ -70,7 +174,11 @@ Dashboard
 
 
 
-Assets
+Upload Center
+
+
+
+Asset Library
 
 
 
@@ -78,11 +186,11 @@ Search
 
 
 
-Jobs
-
-
-
 Collections
+
+
+
+Jobs
 
 
 
@@ -98,7 +206,39 @@ Settings
 
 
 
-\# 3. Dashboard Screen
+\# 5. Header Components
+
+
+
+Header berisi:
+
+
+
+Global Search
+
+
+
+Notifications
+
+
+
+Processing Queue Indicator
+
+
+
+User Profile
+
+
+
+Theme Switcher
+
+
+
+\---
+
+
+
+\# 6. Dashboard Screen
 
 
 
@@ -106,7 +246,7 @@ Purpose:
 
 
 
-Memberikan ringkasan sistem.
+Memberikan overview sistem.
 
 
 
@@ -114,43 +254,59 @@ Layout:
 
 
 
-+------------------------------------------------+
++---------------------------------------------------------+
 
-| Top Bar                                        |
+| Global Search                                           |
 
-+------------------------------------------------+
-
-
-
-+----------------+ +----------------+
-
-| Total Assets   | | Storage Used   |
-
-+----------------+ +----------------+
++---------------------------------------------------------+
 
 
 
-+----------------+ +----------------+
++------------------+------------------+------------------+
 
-| AI Jobs        | | Searches Today |
+| Total Assets     | Storage Used     | Active Users     |
 
-+----------------+ +----------------+
-
-
-
-+--------------------------------------+
-
-| Recent Uploads                       |
-
-+--------------------------------------+
++------------------+------------------+------------------+
 
 
 
-+--------------------------------------+
++------------------+------------------+------------------+
 
-| Processing Jobs                      |
+| AI Jobs          | Searches Today   | Processing Queue |
 
-+--------------------------------------+
++------------------+------------------+------------------+
+
+
+
++---------------------------------------------------------+
+
+| Storage Growth Chart                                    |
+
++---------------------------------------------------------+
+
+
+
++---------------------------------------------------------+
+
+| AI Processing Statistics                                |
+
++---------------------------------------------------------+
+
+
+
++---------------------------------------------------------+
+
+| Recent Uploads                                          |
+
++---------------------------------------------------------+
+
+
+
++---------------------------------------------------------+
+
+| Recent Searches                                         |
+
++---------------------------------------------------------+
 
 
 
@@ -160,15 +316,19 @@ Widgets:
 
 \- Total Assets
 
-\- Total Storage
+\- Storage Used
 
 \- AI Jobs
 
-\- Search Activity
+\- Active Users
+
+\- Storage Growth
+
+\- AI Processing Statistics
 
 \- Recent Uploads
 
-\- Processing Queue
+\- Search Activity
 
 
 
@@ -176,7 +336,7 @@ Widgets:
 
 
 
-\# 4. Asset Library Screen
+\# 7. Upload Center
 
 
 
@@ -184,7 +344,7 @@ Purpose:
 
 
 
-Melihat seluruh asset.
+Mengunggah dan memproses asset baru.
 
 
 
@@ -192,27 +352,97 @@ Layout:
 
 
 
-+------------------------------------------------+
++---------------------------------------------------------+
 
-| Search Bar                                     |
+| Drag \& Drop Upload Area                                |
 
-+------------------------------------------------+
-
-
-
-+------------------------------------------------+
-
-| Filter Panel                                   |
-
-+------------------------------------------------+
++---------------------------------------------------------+
 
 
 
-+------------------------------------------------+
++---------------------------------------------------------+
 
-| Asset Grid/List                                |
+| Upload Queue                                            |
 
-+------------------------------------------------+
++---------------------------------------------------------+
+
+
+
+Features:
+
+
+
+\- Single Upload
+
+\- Batch Upload
+
+\- Folder Upload
+
+\- Upload Progress
+
+\- Metadata Form
+
+\- AI Processing Options
+
+
+
+AI Options:
+
+
+
+✓ Transcription
+
+
+
+✓ Scene Detection
+
+
+
+✓ Keyword Extraction
+
+
+
+✓ Object Detection
+
+
+
+✓ AI Knowledge Extraction
+
+
+
+\---
+
+
+
+\# 8. Asset Library
+
+
+
+Purpose:
+
+
+
+Melihat seluruh aset media.
+
+
+
+Layout:
+
+
+
++---------------------------------------------------------+
+
+| Search Bar                                              |
+
++---------------------------------------------------------+
+
+
+
++----------------------+----------------------------------+
+
+| Filter Panel         | Asset Grid/List                 |
+
++----------------------+----------------------------------+
 
 
 
@@ -230,6 +460,8 @@ Features:
 
 \- Bulk Actions
 
+\- Saved Searches
+
 
 
 Filters:
@@ -244,9 +476,13 @@ Filters:
 
 \- Duration
 
+\- Media Type
+
 \- Status
 
-\- Media Type
+\- AI Processed
+
+\- Language
 
 
 
@@ -254,7 +490,69 @@ Filters:
 
 
 
-\# 5. Asset Detail Screen
+\# 9. Asset Card
+
+
+
+Grid View
+
+
+
++----------------------------------+
+
+| Thumbnail                        |
+
++----------------------------------+
+
+
+
+Title
+
+
+
+Duration
+
+
+
+Tags
+
+
+
+Status
+
+
+
+AI Score
+
+
+
+\---
+
+
+
+Displayed Metadata:
+
+
+
+\- Thumbnail
+
+\- Duration
+
+\- Asset Type
+
+\- Processing Status
+
+\- Tags
+
+\- Upload Date
+
+
+
+\---
+
+
+
+\# 10. Asset Detail Screen
 
 
 
@@ -262,7 +560,7 @@ Purpose:
 
 
 
-Halaman utama untuk eksplorasi asset.
+Pusat eksplorasi seluruh informasi asset.
 
 
 
@@ -270,43 +568,35 @@ Layout:
 
 
 
-+------------------------------------------------+
++---------------------------------------------------------+
 
-| Video Player                                   |
+| Video Player                                            |
 
-+------------------------------------------------+
-
-
-
-+------------------------------------------------+
-
-| Asset Information                              |
-
-+------------------------------------------------+
++---------------------------------------------------------+
 
 
 
-+------------------------------------------------+
++-------------------------+-------------------------------+
 
-| Transcript                                     |
+| Transcript Panel        | AI Knowledge Panel            |
 
-+------------------------------------------------+
-
-
-
-+------------------------------------------------+
-
-| AI Knowledge                                   |
-
-+------------------------------------------------+
++-------------------------+-------------------------------+
 
 
 
-+------------------------------------------------+
++---------------------------------------------------------+
 
-| Scenes                                          |
+| Scene Timeline                                           |
 
-+------------------------------------------------+
++---------------------------------------------------------+
+
+
+
++---------------------------------------------------------+
+
+| Asset Metadata                                           |
+
++---------------------------------------------------------+
 
 
 
@@ -314,7 +604,7 @@ Layout:
 
 
 
-\# 6. Video Preview Panel
+\# 11. Video Player
 
 
 
@@ -332,9 +622,11 @@ Features:
 
 \- Playback Speed
 
+\- Frame Navigation
 
 
-Supported:
+
+Supported Formats:
 
 
 
@@ -346,37 +638,23 @@ Supported:
 
 \- MPEG
 
+\- ProRes
+
 
 
 \---
 
 
 
-\# 7. Transcript Panel
+\# 12. Transcript Panel
 
 
 
-Layout:
+Purpose:
 
 
 
-+----------------------------------+
-
-| Transcript Search               |
-
-+----------------------------------+
-
-
-
-00:00 Hello world
-
-
-
-00:03 Welcome to AI-MAM
-
-
-
-00:08 Today we discuss...
+Menampilkan hasil speech-to-text.
 
 
 
@@ -390,45 +668,23 @@ Features:
 
 \- Export Transcript
 
-
-
-\---
-
-
-
-\# 8. Scene Detection Panel
+\- Highlight Search Result
 
 
 
-Layout:
+Example:
 
 
 
-+------------------+
-
-| Scene Thumbnail  |
-
-+------------------+
+00:00 Welcome to AI-MAM
 
 
 
-+------------------+
-
-| Scene Thumbnail  |
-
-+------------------+
+00:05 Today we discuss economy
 
 
 
-Features:
-
-
-
-\- Click Thumbnail
-
-\- Jump To Scene
-
-\- Scene Metadata
+00:10 Government policy update
 
 
 
@@ -436,7 +692,7 @@ Features:
 
 
 
-\# 9. AI Knowledge Panel
+\# 13. AI Knowledge Panel
 
 
 
@@ -448,7 +704,7 @@ Menampilkan hasil analisis AI.
 
 
 
-Layout:
+Sections:
 
 
 
@@ -484,6 +740,14 @@ Sentiment
 
 
 
+Language
+
+
+
+Confidence Score
+
+
+
 Example:
 
 
@@ -492,7 +756,7 @@ Summary:
 
 
 
-Economic speech by President
+President discusses national economy.
 
 
 
@@ -518,6 +782,8 @@ Topics:
 
 \- Economy
 
+\- Finance
+
 
 
 Objects:
@@ -534,7 +800,7 @@ Objects:
 
 
 
-\# 10. Search Screen
+\# 14. Scene Timeline
 
 
 
@@ -542,7 +808,7 @@ Purpose:
 
 
 
-Mencari asset menggunakan AI.
+Visual navigation video.
 
 
 
@@ -550,15 +816,25 @@ Layout:
 
 
 
-+------------------------------------------------+
++---------------------------------------------------------+
 
-| Search Box                                     |
+| Scene 1 | Scene 2 | Scene 3 | Scene 4 | Scene 5        |
 
-+------------------------------------------------+
++---------------------------------------------------------+
 
 
 
-Results
+Features:
+
+
+
+\- Scene Thumbnail
+
+\- Scene Metadata
+
+\- Jump To Scene
+
+\- Scene Duration
 
 
 
@@ -566,11 +842,99 @@ Results
 
 
 
-Search Types
+\# 15. Metadata Panel
+
+
+
+Fields:
+
+
+
+Title
+
+
+
+Description
+
+
+
+Duration
+
+
+
+Resolution
+
+
+
+File Size
+
+
+
+Media Type
+
+
+
+Language
+
+
+
+Tags
+
+
+
+Keywords
+
+
+
+Created By
+
+
+
+Created Date
+
+
+
+Updated Date
+
+
+
+\---
+
+
+
+\# 16. Search Experience
+
+
+
+Purpose:
+
+
+
+Fitur utama AI-MAM.
+
+
+
+Layout:
+
+
+
++---------------------------------------------------------+
+
+| Global Search                                           |
+
++---------------------------------------------------------+
+
+
+
+Search Types:
 
 
 
 Keyword Search
+
+
+
+Transcript Search
 
 
 
@@ -582,7 +946,7 @@ Natural Language Search
 
 
 
-Example:
+Examples:
 
 
 
@@ -598,11 +962,67 @@ Example:
 
 
 
+"orang berbicara di podium"
+
+
+
 \---
 
 
 
-\# 11. Job Monitor Screen
+\# 17. Search Results
+
+
+
+Layout:
+
+
+
++---------------------------------------------------------+
+
+| Search Results                                          |
+
++---------------------------------------------------------+
+
+
+
+Asset Thumbnail
+
+
+
+Title
+
+
+
+Matched Segment
+
+
+
+AI Confidence
+
+
+
+Tags
+
+
+
+Features:
+
+
+
+\- Preview Result
+
+\- Open Asset
+
+\- Save Search
+
+
+
+\---
+
+
+
+\# 18. Job Monitor
 
 
 
@@ -610,7 +1030,7 @@ Purpose:
 
 
 
-Monitoring AI processing.
+Monitoring seluruh AI processing.
 
 
 
@@ -626,7 +1046,7 @@ Asset
 
 
 
-Type
+Job Type
 
 
 
@@ -643,10 +1063,6 @@ Started
 
 
 Completed
-
-
-
-\---
 
 
 
@@ -670,11 +1086,15 @@ Failed
 
 
 
+Cancelled
+
+
+
 \---
 
 
 
-\# 12. User Management Screen
+\# 19. User Management
 
 
 
@@ -686,7 +1106,7 @@ Create User
 
 
 
-Edit User
+Update User
 
 
 
@@ -698,7 +1118,7 @@ Assign Role
 
 
 
-\---
+Reset Password
 
 
 
@@ -722,7 +1142,7 @@ Viewer
 
 
 
-\# 13. Settings Screen
+\# 20. Settings
 
 
 
@@ -742,7 +1162,7 @@ AI Providers
 
 
 
-Search Engine
+OpenSearch
 
 
 
@@ -750,7 +1170,15 @@ Security
 
 
 
+Authentication
+
+
+
 Users
+
+
+
+System Logs
 
 
 
@@ -758,15 +1186,47 @@ Users
 
 
 
-\# 14. MVP Screens
+\# 21. Mobile Support
 
 
 
-Required:
+Supported:
+
+
+
+Tablet
+
+
+
+Mobile Browser
+
+
+
+Responsive Layout
+
+
+
+\---
+
+
+
+\# 22. MVP Screens
+
+
+
+Required Screens:
+
+
+
+Login
 
 
 
 Dashboard
+
+
+
+Upload Center
 
 
 
@@ -782,11 +1242,11 @@ Search
 
 
 
-Jobs
+Job Monitor
 
 
 
-Login
+Users
 
 
 
@@ -798,7 +1258,7 @@ Settings
 
 
 
-\# 15. Future Screens
+\# 23. Future Screens
 
 
 
@@ -818,11 +1278,105 @@ Clip Generator
 
 
 
-Analytics
+Face Recognition
+
+
+
+Speaker Identification
+
+
+
+OCR Viewer
+
+
+
+Analytics Dashboard
 
 
 
 Content Recommendation
+
+
+
+\---
+
+
+
+\# 24. Design System
+
+
+
+Typography:
+
+
+
+Inter
+
+
+
+Colors:
+
+
+
+Primary:
+
+\#2563EB
+
+
+
+Success:
+
+\#16A34A
+
+
+
+Warning:
+
+\#F59E0B
+
+
+
+Danger:
+
+\#DC2626
+
+
+
+Background:
+
+\#F8FAFC
+
+
+
+\---
+
+
+
+\# 25. MVP UI Success Metrics
+
+
+
+Asset Search Time:
+
+< 10 seconds
+
+
+
+Upload Success Rate:
+
+> 99%
+
+
+
+Search Accuracy:
+
+> 85%
+
+
+
+AI Metadata Accuracy:
+
+> 85%
 
 
 

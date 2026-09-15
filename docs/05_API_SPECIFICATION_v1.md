@@ -1,376 +1,752 @@
-# AI-MAM API Specification
+\# AI-MAM API Specification
+
+
 
 Version: 1.0
 
+
+
 Status: Draft
+
+
 
 Product: AI Media Asset Manager (AI-MAM)
 
----
 
-# 1. API Overview
+
+\---
+
+
+
+\# 1. API Overview
+
+
 
 Base URL:
 
+
+
 /api/v1
+
+
 
 Architecture:
 
+
+
 Frontend (Next.js)
-        ↓
+
+&#x20;       ↓
+
 FastAPI REST API
-        ↓
+
+&#x20;       ↓
+
 PostgreSQL
+
 OpenSearch
+
 MinIO
+
+
 
 Authentication:
 
+
+
 JWT Access Token
+
 JWT Refresh Token
+
+
 
 Content Type:
 
+
+
 application/json
 
----
 
-# 2. Authentication API
 
-## Login
+\---
+
+
+
+\# 2. Authentication API
+
+
+
+\## Login
+
+
 
 POST /auth/login
 
+
+
 Request
 
+
+
 {
-  "email": "admin@aimam.com",
-  "password": "password123"
+
+&#x20; "email": "admin@aimam.com",
+
+&#x20; "password": "password123"
+
 }
+
+
 
 Response
 
+
+
 {
-  "access_token": "...",
-  "refresh_token": "...",
-  "token_type": "bearer"
+
+&#x20; "access\_token": "...",
+
+&#x20; "refresh\_token": "...",
+
+&#x20; "token\_type": "bearer"
+
 }
 
----
 
-## Refresh Token
+
+\---
+
+
+
+\## Refresh Token
+
+
 
 POST /auth/refresh
 
+
+
 Response
 
+
+
 {
-  "access_token": "..."
+
+&#x20; "access\_token": "..."
+
 }
 
----
 
-## Logout
+
+\---
+
+
+
+\## Logout
+
+
 
 POST /auth/logout
 
----
 
-## Current User
+
+\---
+
+
+
+\## Current User
+
+
 
 GET /auth/me
 
+
+
 Response
 
+
+
 {
-  "id":"uuid",
-  "email":"admin@aimam.com",
-  "full_name":"Administrator",
-  "role":"admin"
+
+&#x20; "id":"uuid",
+
+&#x20; "email":"admin@aimam.com",
+
+&#x20; "full\_name":"Administrator",
+
+&#x20; "role":"admin"
+
 }
 
----
 
-# 3. User API
 
-## Get Users
+\---
+
+
+
+\# 3. User API
+
+
+
+\## Get Users
+
+
 
 GET /users
 
----
 
-## Create User
+
+\---
+
+
+
+\## Create User
+
+
 
 POST /users
 
----
 
-## Update User
+
+\---
+
+
+
+\## Update User
+
+
 
 PUT /users/{id}
 
----
 
-## Delete User
+
+\---
+
+
+
+\## Delete User
+
+
 
 DELETE /users/{id}
 
----
 
-# 4. Asset API
 
-## Upload Asset
+\---
+
+
+
+\# 4. Asset API
+
+
+
+\## Upload Asset
+
+
 
 POST /assets/upload
 
+
+
 Multipart Form Data
+
+
 
 Fields:
 
+
+
 file
+
 title
+
 description
+
+
 
 Response
 
+
+
 {
-  "id":"uuid",
-  "status":"uploaded"
+
+&#x20; "id":"uuid",
+
+&#x20; "status":"uploaded"
+
 }
 
----
 
-## Get Asset List
+
+\---
+
+
+
+\## Get Asset List
+
+
 
 GET /assets
 
+
+
 Query:
 
+
+
 ?page=1
-&limit=20
-&status=ready
 
----
+\&limit=20
 
-## Get Asset Detail
+\&status=ready
+
+
+
+\---
+
+
+
+\## Get Asset Detail
+
+
 
 GET /assets/{id}
 
----
 
-## Update Asset
+
+\---
+
+
+
+\## Update Asset
+
+
 
 PUT /assets/{id}
 
----
 
-## Delete Asset
+
+\---
+
+
+
+\## Delete Asset
+
+
 
 DELETE /assets/{id}
 
----
 
-# 5. Asset Version API
+
+\---
+
+
+
+\# 5. Asset Version API
+
+
 
 GET /assets/{id}/versions
 
+
+
 POST /assets/{id}/versions
 
----
 
-# 6. Transcript API
+
+\---
+
+
+
+\# 6. Transcript API
+
+
 
 GET /assets/{id}/transcripts
 
+
+
 Response
 
-[
-  {
-    "start_time":0.0,
-    "end_time":3.5,
-    "text":"Hello world"
-  }
+
+
+\[
+
+&#x20; {
+
+&#x20;   "start\_time":0.0,
+
+&#x20;   "end\_time":3.5,
+
+&#x20;   "text":"Hello world"
+
+&#x20; }
+
 ]
 
----
 
-# 7. Scene API
+
+\---
+
+
+
+\# 7. Scene API
+
+
 
 GET /assets/{id}/scenes
 
+
+
 Response
 
-[
-  {
-    "scene_number":1,
-    "start_time":0,
-    "end_time":15,
-    "thumbnail_url":"..."
-  }
+
+
+\[
+
+&#x20; {
+
+&#x20;   "scene\_number":1,
+
+&#x20;   "start\_time":0,
+
+&#x20;   "end\_time":15,
+
+&#x20;   "thumbnail\_url":"..."
+
+&#x20; }
+
 ]
 
----
 
-# 8. Metadata API
 
-## Get Tags
+\---
+
+
+
+\# 8. Metadata API
+
+
+
+\## Get Tags
+
+
 
 GET /assets/{id}/tags
 
----
 
-## Add Tag
+
+\---
+
+
+
+\## Add Tag
+
+
 
 POST /assets/{id}/tags
 
----
 
-## Delete Tag
 
-DELETE /assets/{id}/tags/{tag_id}
+\---
 
----
 
-## Get Keywords
+
+\## Delete Tag
+
+
+
+DELETE /assets/{id}/tags/{tag\_id}
+
+
+
+\---
+
+
+
+\## Get Keywords
+
+
 
 GET /assets/{id}/keywords
 
----
 
-# 9. AI Knowledge API
+
+\---
+
+
+
+\# 9. AI Knowledge API
+
+
 
 GET /assets/{id}/knowledge
 
+
+
 Response
 
+
+
 {
-  "summary":"Economic speech by President",
 
-  "people":["Prabowo"],
+&#x20; "summary":"Economic speech by President",
 
-  "organizations":["Ministry of Finance"],
 
-  "locations":["Jakarta"],
 
-  "topics":["Economy"],
+&#x20; "people":\["Prabowo"],
 
-  "objects":["podium"],
 
-  "events":["Economic Forum"]
+
+&#x20; "organizations":\["Ministry of Finance"],
+
+
+
+&#x20; "locations":\["Jakarta"],
+
+
+
+&#x20; "topics":\["Economy"],
+
+
+
+&#x20; "objects":\["podium"],
+
+
+
+&#x20; "events":\["Economic Forum"]
+
 }
 
----
 
-# 10. Search API
 
-## Keyword Search
+\---
+
+
+
+\# 10. Search API
+
+
+
+\## Keyword Search
+
+
 
 GET /search?q=economy
 
----
 
-## Semantic Search
+
+\---
+
+
+
+\## Semantic Search
+
+
 
 GET /search/semantic?q=president speech
 
----
 
-## Natural Language Search
+
+\---
+
+
+
+\## Natural Language Search
+
+
 
 GET /search/natural?q=video presiden bicara ekonomi
 
+
+
 Response
 
+
+
 {
-  "results":[]
+
+&#x20; "results":\[]
+
 }
 
----
 
-# 11. Job API
 
-## Get Jobs
+\---
+
+
+
+\# 11. Job API
+
+
+
+\## Get Jobs
+
+
 
 GET /jobs
 
----
 
-## Get Job Detail
+
+\---
+
+
+
+\## Get Job Detail
+
+
 
 GET /jobs/{id}
 
----
 
-## Retry Job
+
+\---
+
+
+
+\## Retry Job
+
+
 
 POST /jobs/{id}/retry
 
----
 
-# 12. Dashboard API
+
+\---
+
+
+
+\# 12. Dashboard API
+
+
 
 GET /dashboard/stats
 
+
+
 Response
 
+
+
 {
-  "total_assets":1000,
-  "total_storage":"5TB",
-  "processing_jobs":12,
-  "completed_jobs":950
+
+&#x20; "total\_assets":1000,
+
+&#x20; "total\_storage":"5TB",
+
+&#x20; "processing\_jobs":12,
+
+&#x20; "completed\_jobs":950
+
 }
 
----
 
-# 13. Health Check API
+
+\---
+
+
+
+\# 13. Health Check API
+
+
 
 GET /health
 
+
+
 Response
 
+
+
 {
-  "status":"healthy"
+
+&#x20; "status":"healthy"
+
 }
 
----
 
-# 14. Future APIs
+
+\---
+
+
+
+\# 14. Future APIs
+
+
 
 Planned Endpoints:
 
+
+
 /faces
+
 /speakers
+
 /logos
+
 /ocr
+
 /clips
+
 /collections
+
 /playlists
+
 /workflows
+
 /assistant
 
----
 
-# 15. API Versioning Strategy
+
+\---
+
+
+
+\# 15. API Versioning Strategy
+
+
 
 Current:
 
+
+
 /api/v1
+
+
 
 Future:
 
+
+
 /api/v2
 
----
 
-# 16. MVP APIs
+
+\---
+
+
+
+\# 16. MVP APIs
+
+
 
 Required:
 
+
+
 Auth
+
 Assets
+
 Search
+
 Knowledge
+
 Jobs
+
 Dashboard
 
+
+
 Version: MVP v1.0
+

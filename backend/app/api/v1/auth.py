@@ -1,5 +1,8 @@
 from fastapi import APIRouter
 
+from app.schemas.user import UserCreate
+from app.schemas.auth import LoginRequest
+
 router = APIRouter(
     prefix="/auth",
     tags=["Authentication"]
@@ -7,14 +10,19 @@ router = APIRouter(
 
 
 @router.post("/register")
-def register():
+def register(user: UserCreate):
+
     return {
-        "message": "Register endpoint"
+        "username": user.username,
+        "email": user.email,
+        "message": "User registered"
     }
 
 
 @router.post("/login")
-def login():
+def login(data: LoginRequest):
+
     return {
-        "message": "Login endpoint"
+        "username": data.username,
+        "message": "Login request received"
     }

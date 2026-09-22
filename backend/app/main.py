@@ -11,7 +11,19 @@ from app.api.v1.auth import router as auth_router
 from app.api.v1.users import router as users_router
 from app.api.v1.assets import router as assets_router
 
+from app.db.database import SessionLocal
+
+from app.services.seed_service import (
+    seed_roles
+)
+
 Base.metadata.create_all(bind=engine)
+
+db = SessionLocal()
+
+seed_roles(db)
+
+db.close()
 
 app = FastAPI(
     title="AI-MAM API",

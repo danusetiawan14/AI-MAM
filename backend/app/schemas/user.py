@@ -12,6 +12,7 @@ class UserResponse(BaseModel):
     id: UUID
     username: str
     email: EmailStr
+    role: str | None = None
 
     class Config:
         from_attributes = True
